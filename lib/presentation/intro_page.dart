@@ -123,7 +123,7 @@ class _IntroState extends State<Intro> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (_) => PlayerProfile(photo: player.playerImage??"", name: player.fullname??"", rating: player.rating??"", skill: player.skillLevel??"",),
+                                    builder: (_) => PlayerProfile(photo: player.playerImage??"", name: player.fullname??"", rating: player.rating??"", skill: player.skillLevel??"", userId: player.userId??0,),
                                   ),
                                 );
                               },
