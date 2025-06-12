@@ -21,7 +21,12 @@ class PlayerProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text(
+          "Player info",
+          style: TextStyle(fontWeight: FontWeight.w300),
+        ),
         backgroundColor: Colors.transparent,
+        centerTitle: true,
         elevation: 0, // Good practice for transparent AppBars
       ),
       body: Column(
@@ -43,83 +48,74 @@ class PlayerProfile extends StatelessWidget {
               },
               child: CircleAvatar(
                 radius: 120,
-                backgroundImage: photo.isNotEmpty
-                    ? NetworkImage(photo)
-                    : null,
-                onBackgroundImageError: (exception, stackTrace) {
-                  // Optional: handle image loading errors
-                },
+                backgroundImage: photo.isNotEmpty ? NetworkImage(photo) : null,
+                onBackgroundImageError: (exception, stackTrace) {},
                 child: photo.isEmpty
                     ? const Icon(Icons.person, size: 100, color: Colors.grey)
                     : null,
               ),
             ),
           ),
-          const SizedBox(height: 4), // Added const
-
+          const SizedBox(height: 4),
           Text(
             name.toUpperCase(),
-            style: const TextStyle( // Added const
+            style: const TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
               fontSize: 20,
             ),
           ),
-          const SizedBox(height: 20), // Added some vertical spacing between name and cards
-
-          // Fix: Wrap multiple children in a Row or Column directly.
-          // Each DescCard needs its own Padding if you want separate padding.
+          const SizedBox(height: 20),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center, // Center the row of cards
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // First DescCard for Skill
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5.0), // Horizontal spacing between cards
-                child: Card( // <--- Wrap DescCard in a Card if you want it to look like your previous Card design
+                padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                child: Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
-                    side: const BorderSide(
-                      color: Colors.green, // Border color
-                      width: 2.0,          // Border thickness
-                    ),
+                    side: const BorderSide(color: Colors.green, width: 2.0),
                   ),
-                  color: Colors.green[200],
+                  color: Colors.green[100],
                   elevation: 3,
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0), // Padding inside the card content
-                    child: DescCard(skill: skill, rating: ''), // Pass skill, rating is not used here
+                    padding: const EdgeInsets.all(8.0),
+                    child: DescCard(skill: skill, rating: ''),
                   ),
                 ),
               ),
 
-              // Second DescCard for Rating
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5.0), // Horizontal spacing between cards
-                child: Card( // <--- Wrap DescCard in a Card
+                padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                child: Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
-                    side: const BorderSide(
-                      color: Colors.blue, // Different border color for distinction
-                      width: 2.0,
-                    ),
+                    side: const BorderSide(color: Colors.green, width: 2.0),
                   ),
-                  color: Colors.blue[100], // Different background color
+                  color: Colors.green[100],
                   elevation: 3,
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0), // Padding inside the card content
-                    child: DescCard(
-                      skill: '', // Skill not used here
-                      rating: rating,
-                      // You'll need to modify DescCard to display rating if you want it to show both.
-                      // For now, I'll show how DescCard can be adapted for rating.
-                      // Let's adjust DescCard to intelligently show skill or rating.
-                    ),
+                    padding: const EdgeInsets.all(8.0),
+                    child: DescCard(skill: '', rating: rating),
                   ),
                 ),
               ),
             ],
           ),
-          // If you want more profile details, add them here
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+              child: Text(
+                "Recent Reviews",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "Pacifico",
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );

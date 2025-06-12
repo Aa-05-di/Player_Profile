@@ -8,8 +8,6 @@ class DescCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Determine what content to display
-    Widget content;
     IconData iconData;
     String title;
     String value;
@@ -20,16 +18,16 @@ class DescCard extends StatelessWidget {
       iconData = Icons.sports_cricket_sharp;
       title = "Skill Level";
       value = skill;
-      iconColor = Colors.green[800]!; // Ensure non-null for use
+      iconColor = Colors.green[800]!; 
       titleColor = Colors.black54;
     } else if (rating.isNotEmpty) {
       iconData = Icons.star;
       title = "Player Rating";
       value = double.tryParse(rating)?.toStringAsFixed(1) ?? 'N/A';
-      iconColor = Colors.amber[800]!; // Ensure non-null for use
+      iconColor = Colors.amber[800]!; 
       titleColor = Colors.black54;
     } else {
-      // Fallback if neither is provided
+
       iconData = Icons.help_outline;
       title = "No Data";
       value = "N/A";
@@ -46,7 +44,7 @@ class DescCard extends StatelessWidget {
           child: Icon(
             iconData,
             color: iconColor,
-            size: 25,
+            size: 30,
           ),
         ),
         // Text Column
