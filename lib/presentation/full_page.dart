@@ -38,8 +38,8 @@ class _FullPageState extends State<FullPage> {
 
                     /// Close button (top right)
                     Positioned(
-                      top: 40,
-                      right: 10,
+                      top: 5,
+                      right: 2,
                       child: IconButton(
                         icon: const Icon(Icons.close, color: Colors.white),
                         onPressed: () => Navigator.pop(context),
