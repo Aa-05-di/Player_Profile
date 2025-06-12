@@ -92,10 +92,11 @@ class _VideoCardState extends State<VideoCard> {
       itemBuilder: (context, index) {
         final video = filteredVideos[index];
         final controller = _controllers[video.id ?? 0];
-        if (kDebugMode)
+        if (kDebugMode) {
           print(
             "Building video ID ${video.id}, Controller initialized: ${controller?.value.isInitialized ?? false}",
           );
+        }
         return Card(
           shadowColor: Colors.black,
           shape: RoundedRectangleBorder(
@@ -114,7 +115,7 @@ class _VideoCardState extends State<VideoCard> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    FullPage(controller: controller!),
+                                    FullPage(controller: controller),
                               ),
                             );
                           },
