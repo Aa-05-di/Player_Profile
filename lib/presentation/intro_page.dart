@@ -120,14 +120,12 @@ class _IntroState extends State<Intro> {
                             ),
                             ElevatedButton(
                               onPressed: () {
-                                // Navigator.push(
-                                //   context,
-                                //   MaterialPageRoute(
-                                //     builder: (_) => PlayerProfile(
-                                //       userId: player.userId ?? 0,
-                                //     ),
-                                //   ),
-                                // );
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => PlayerProfile(photo: player.playerImage??"", name: player.fullname??"", rating: player.rating??"", skill: player.skillLevel??"",),
+                                  ),
+                                );
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.green,
